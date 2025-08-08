@@ -75,37 +75,77 @@ namespace Assignment01
             #endregion
 
             #region Q03
-            // 3.You are given a list of integers. Your task is to find and return a new list
-            //   containing only the even numbers from the given list.
+            //// 3.You are given a list of integers. Your task is to find and return a new list
+            ////   containing only the even numbers from the given list.
 
-            int itemsNumber, number;
+            //int itemsNumber, number;
 
+            //do
+            //{
+            //    Console.Write("Enter the number of items in the numbers list:");
+            //} while (!int.TryParse(Console.ReadLine(), out itemsNumber));
+
+            //List<int> numbersList = new List<int>(itemsNumber);
+
+            //for (int i = 0; i < itemsNumber; i++)
+            //{
+            //    do
+            //    {
+            //        Console.Write($"Enter the {i + 1}th number: ");
+            //    } while (!int.TryParse(Console.ReadLine(), out number));
+
+            //    numbersList.Add(number);
+            //}
+
+            //List<int> evenNumbers = Helper.GetEvenNumbers(numbersList);
+
+            //Console.WriteLine("===============================================");
+            //Console.WriteLine("List of even numbers");
+
+            //foreach (var item in evenNumbers)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Q04
+            // 4. Implement a custom list called FixedSizeList<T> with a predeterminedcapacity.
+            //    This list should not allow more elements than its capacity and should provide clear messages
+            //    if one tries to exceed it or access invalid indices.
+            // Requirements:
+            // 4.1. Create a generic class named FixedSizeList<T>.
+            // 4.2. Implement a constructor that takes the fixed capacity of the list as a parameter.
+            // 4.3. Implement an Add method that adds an element to the list, but throws an exception if the list is already full.
+            // 4..4 Implement a Get method that retrieves an element at a specific index in the list but throws an exception for invalid indices.
+
+            int capacity, tempItem, index;
             do
             {
-                Console.Write("Enter the number of items in the numbers list:");
-            } while (!int.TryParse(Console.ReadLine(), out itemsNumber));
+                Console.Write("Enter the capacity  list: ");
+            } while (!int.TryParse(Console.ReadLine(), out capacity));
 
-            List<int> numbersList = new List<int>(itemsNumber);
+            FixedSizeList<int> arrayList = new FixedSizeList<int>(capacity);
 
-            for (int i = 0; i < itemsNumber; i++)
+            for (int i = 0; i < capacity; i++)
             {
                 do
                 {
-                    Console.Write($"Enter the {i + 1}th number: ");
-                } while (!int.TryParse(Console.ReadLine(), out number));
+                    Console.Write($"Enter the {i + 1}th item: ");
+                } while (!int.TryParse(Console.ReadLine(), out tempItem));
 
-                numbersList.Add(number);
+                arrayList.Add(tempItem);
             }
 
-            List<int> evenNumbers = Helper.GetEvenNumbers(numbersList);
-
-            Console.WriteLine("===============================================");
-            Console.WriteLine("List of even numbers");
-
-            foreach (var item in evenNumbers)
+            do
             {
-                Console.WriteLine(item);
+                Console.WriteLine("Enter the item idex you want to get");
             }
+            while (!int.TryParse(Console.ReadLine(), out index));
+
+            Console.WriteLine(arrayList.Get(index));
+
+            //arrayList.Add(33); //Exception
+
             #endregion
         }
     }
