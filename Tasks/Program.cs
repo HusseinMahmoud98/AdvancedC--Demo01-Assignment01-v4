@@ -15,7 +15,7 @@
             #region Task02
             //Create obj (stringBox) 
             MultiBox<string> stringBox = new MultiBox<string>();
-            Console.WriteLine(stringBox.IsEmpty());// Output: True 
+            Console.WriteLine(stringBox.IsEmpty());// Output: True  
 
             //insert two items 
             stringBox.InsertItem("Hussein");
