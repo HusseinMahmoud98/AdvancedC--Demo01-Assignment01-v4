@@ -47,28 +47,62 @@ namespace Assignment01
             #endregion
 
             #region Q02
-            //2. You are given an ArrayList containing a sequence of elements. try to reverse the order of elements in the ArrayList in-place
-            //   (in the same arrayList) without using the built-in Reverse.Implement a function thattakes the ArrayList as input and modifies it
-            //   to have the reversed order ofelements. 
-            int itemsNumber;
+            ////2. You are given an ArrayList containing a sequence of elements. try to reverse the order of elements in the ArrayList in-place
+            ////   (in the same arrayList) without using the built-in Reverse.Implement a function thattakes the ArrayList as input and modifies it
+            ////   to have the reversed order ofelements. 
+            //int itemsNumber;
+            //do
+            //{
+            //    Console.Write("Enter the number of items in the array list:");
+            //} while (!int.TryParse(Console.ReadLine(), out itemsNumber));            
+
+            //ArrayList arrayList = new ArrayList(itemsNumber);
+
+            //for (int i = 0; i < itemsNumber; i++)
+            //{
+            //    Console.Write($"Enter the {i + 1}th item: ");
+            //    arrayList.Add(Console.ReadLine());
+            //}
+
+            //Helper.ReverseArrayList(ref arrayList);
+
+            //Console.WriteLine("Array List After Reverse");
+
+            //foreach (var item in arrayList)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Q03
+            // 3.You are given a list of integers. Your task is to find and return a new list
+            //   containing only the even numbers from the given list.
+
+            int itemsNumber, number;
+
             do
             {
-                Console.Write("Enter the number of items in the array list:");
-            } while (!int.TryParse(Console.ReadLine(), out itemsNumber));            
+                Console.Write("Enter the number of items in the numbers list:");
+            } while (!int.TryParse(Console.ReadLine(), out itemsNumber));
 
-            ArrayList arrayList = new ArrayList(itemsNumber);
+            List<int> numbersList = new List<int>(itemsNumber);
 
             for (int i = 0; i < itemsNumber; i++)
             {
-                Console.Write($"Enter the {i + 1}th item: ");
-                arrayList.Add(Console.ReadLine());
+                do
+                {
+                    Console.Write($"Enter the {i + 1}th number: ");
+                } while (!int.TryParse(Console.ReadLine(), out number));
+
+                numbersList.Add(number);
             }
 
-            Helper.ReverseArrayList(ref arrayList);
+            List<int> evenNumbers = Helper.GetEvenNumbers(numbersList);
 
-            Console.WriteLine("Array List After Reverse");
+            Console.WriteLine("===============================================");
+            Console.WriteLine("List of even numbers");
 
-            foreach (var item in arrayList)
+            foreach (var item in evenNumbers)
             {
                 Console.WriteLine(item);
             }
