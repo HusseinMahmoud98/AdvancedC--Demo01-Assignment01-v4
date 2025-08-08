@@ -1,4 +1,6 @@
-﻿namespace Assignment01
+﻿using System.Collections;
+
+namespace Assignment01
 {
     internal class Program
     {
@@ -15,33 +17,61 @@
             //     * 1.5. Note: You can assume that the type T used in the Range<T> class implements the IComparable<T> interface to allow for comparisons. 
             //     */
 
-            //Testing Range of integer values
-            int min, max, value;
+            ////Testing Range of integer values
+            //int min, max, value;
 
+            //do
+            //{
+            //    Console.Write("Enter the min integer in range: ");
+            //} while (!int.TryParse(Console.ReadLine(), out min));
+
+            //do
+            //{
+            //    Console.Write("Enter the max integer in range: ");
+            //} while (!int.TryParse(Console.ReadLine(), out max));
+
+            //Range<int> rangeInt = new Range<int>(min, max);
+
+            //do
+            //{
+            //    Console.Write("Enter an integer value to test: ");
+            //} while (!int.TryParse(Console.ReadLine(), out value));
+
+            //if (rangeInt.IsInRange(value))
+            //    Console.WriteLine($"{value} is in range");
+
+            //else
+            //    Console.WriteLine($"{value} is not in range");
+
+            //Console.WriteLine($"Length of range = {rangeInt.Length()}");
+            #endregion
+
+            #region Q02
+            //2. You are given an ArrayList containing a sequence of elements. try to reverse the order of elements in the ArrayList in-place
+            //   (in the same arrayList) without using the built-in Reverse.Implement a function thattakes the ArrayList as input and modifies it
+            //   to have the reversed order ofelements. 
+            int itemsNumber;
             do
             {
-                Console.Write("Enter the min integer in range: ");
-            } while (!int.TryParse(Console.ReadLine(), out min));
+                Console.Write("Enter the number of items in the array list:");
+            } while (!int.TryParse(Console.ReadLine(), out itemsNumber));            
 
-            do
+            ArrayList arrayList = new ArrayList(itemsNumber);
+
+            for (int i = 0; i < itemsNumber; i++)
             {
-                Console.Write("Enter the max integer in range: ");
-            } while (!int.TryParse(Console.ReadLine(), out max));
+                Console.Write($"Enter the {i + 1}th item: ");
+                arrayList.Add(Console.ReadLine());
+            }
 
-            Range<int> rangeInt = new Range<int>(min, max);
+            Helper.ReverseArrayList(ref arrayList);
 
-            do
+            Console.WriteLine("Array List After Reverse");
+
+            foreach (var item in arrayList)
             {
-                Console.Write("Enter an integer value to test: ");
-            } while (!int.TryParse(Console.ReadLine(), out value));
-
-            if (rangeInt.IsInRange(value))
-                Console.WriteLine($"{value} is in range");
-
-            else
-                Console.WriteLine($"{value} is not in range");
-
-            Console.WriteLine($"Length of range = {rangeInt.Length()}");
+                Console.WriteLine(item);
+            }
             #endregion
         }
     }
